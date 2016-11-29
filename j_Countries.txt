@@ -1,0 +1,1 @@
+[{"abbreviation":"JM","name":"jamaica"},{"abbreviation":"JP","name":"japan"},{"abbreviation":"JO","name":"jordan"}]

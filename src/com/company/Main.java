@@ -1,8 +1,11 @@
 package com.company;
 
 
+import jodd.json.JsonSerializer;
+
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -39,15 +42,29 @@ public class Main {
         }
 
         ArrayList<Country> s = countries.get(input.toLowerCase());
+        JsonSerializer b = new JsonSerializer();
+        String json = b.include("*").serialize(s);
         File n = new File(input + "_Countries.txt");
         FileWriter fw = new FileWriter(n);
-        for (Country o : s) {
-            fw.append(o.name + "\n");
-        }
-
+        fw.write(json);
         fw.close();
+//        for (Country o : s) {
+//            filewrite(fw, o);
+//        }
+//        fw.close();
+
+
+
+
 
         // write your code here
     }
+
+    public static void filewrite(FileWriter fw, Country o) throws IOException{
+        fw.append(o.name + "\n");
+
+    }
+
+
 }
 
